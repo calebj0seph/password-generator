@@ -1,0 +1,19 @@
+@import 'style/variables.scss';
+
+.switch-text-option {
+  .option-label {
+    .option-value {
+      margin: -$base-spacing*2;
+    }
+  }
+
+  .text-field {
+    margin-left: $base-spacing;
+    margin-right: $base-spacing;
+
+    .text-input {
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 400;
+    }
+  }
+}

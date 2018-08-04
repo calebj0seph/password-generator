@@ -1,0 +1,38 @@
+/* Breakpoints */
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 510px) and (max-width: 1023px) { @content; }
+  }
+  @else if $point == tabletMax {
+    @media (min-width: 510px) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: 509px)  { @content; }
+  }
+}
+
+/* Spacing */
+$base-spacing: 8px;
+$content-max-width: $base-spacing * 128;
+$padding-desktop-x: $base-spacing * 4;
+$padding-desktop-y: $base-spacing * 4;
+$padding-tablet-x: $base-spacing * 2;
+$padding-tablet-y: $base-spacing * 2;
+$padding-mobile-x: $base-spacing * 2;
+$padding-mobile-y: $base-spacing * 2;
+
+/* Colours */
+$ui-background: #f5f7f8;
+$ui-color: #000000;
+$ui-error-color: #f44336;
+$input-background: #ffffff;
+$input-edge: #dadada;
+$button-color: #ffffff;
+$button-background: #20BF55;
+$button-disabled-background: #ababab;
+$slider-track-lower: #20BF55;
+$slider-track-upper: #c5c5c5;
+$slider-thumb: #20BF55;

@@ -1,0 +1,38 @@
+@import 'style/variables.scss';
+
+.slider-option {
+  .option-label {
+    .option-value {
+      opacity: 0.67;
+    }
+  }
+
+  .slider {
+    box-sizing: border-box;
+  }
+}
+
+.tooltip-popper {
+  margin-left: 9px;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  font-size: 0.7em;
+  top: 0;
+  left: 0;
+  margin-top: -0.9em;
+  width: 3em;
+  height: 1em;
+  
+  &::before {
+    content: '';
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1em 1em 1em;
+    border-color: transparent transparent #616161 transparent;
+  }
+}

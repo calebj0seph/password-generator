@@ -1,0 +1,98 @@
+@import 'style/variables.scss';
+
+.options-container {
+  display: grid;
+
+  > * {
+    margin-bottom: $base-spacing;
+
+    .option-label {
+      box-sizing: border-box;
+      display: flex;
+      padding: 0 $base-spacing;
+
+      .option-name {
+        flex-grow: 1;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // All these :nth-child() rules are needed to make the grid work in IE 11
+  @include breakpoint(mobile) {
+    grid-template-columns: 1fr;
+
+    > {
+      grid-column: 1;
+    }
+
+    > :nth-child(1) {
+      grid-row: 1;
+    }
+
+    > :nth-child(2) {
+      grid-row: 2;
+    }
+
+    > :nth-child(3) {
+      grid-row: 3;
+    }
+
+    > :nth-child(4) {
+      grid-row: 4;
+    }
+
+    > :nth-child(5) {
+      grid-row: 5;
+    }
+
+    > :nth-child(6) {
+      grid-row: 6;
+    }
+
+    > :nth-child(7) {
+      grid-row: 7;
+    }
+
+    > :nth-child(8) {
+      grid-row: 8;
+    }
+  }
+
+  @include breakpoint(tabletMax) {
+    grid-template-columns: 1fr $base-spacing*4 1fr;
+
+    > :nth-child(2n + 1) {
+      grid-column: 1;
+    }
+
+    > :nth-child(2n) {
+      grid-column: 3;
+    }
+
+    > :nth-child(n + 1):nth-child(-n + 2) {
+      grid-row: 1;
+    }
+
+    > :nth-child(n + 3):nth-child(-n + 4) {
+      grid-row: 2;
+    }
+
+    > :nth-child(n + 5):nth-child(-n + 6) {
+      grid-row: 3;
+    }
+
+    > :nth-child(n + 7):nth-child(-n + 8) {
+      grid-row: 4;
+    }
+
+    // Swap last row
+    > :nth-last-child(1) {
+      grid-column: 1;
+    }
+
+    > :nth-last-child(2) {
+      grid-column: 3;
+    }
+  }
+}
