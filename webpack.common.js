@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const browserList = require('./browserlist');
 
+const REPO_URL = 'https://github.com/calebj0seph/password-generator';
 const BASE_URL = 'https://calebj0seph.github.io/password-generator';
 
 module.exports = {
@@ -73,6 +74,7 @@ module.exports = {
       templateParameters: {
         title: 'Password Generator',
         description: 'A highly configurable tool for generating cryptographically secure random passwords inside your browser.',
+        repoUrl: REPO_URL,
         canonicalUrl: BASE_URL,
         openGraphImageUrl: `${BASE_URL}/static/og.jpg`,
       },

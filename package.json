@@ -16,6 +16,7 @@
     "@material-ui/core": "^1.4.2",
     "@material-ui/lab": "^1.0.0-alpha.8",
     "focus-visible": "^4.1.4",
+    "github-fork-ribbon-css": "^0.2.1",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -32,6 +32,29 @@ body {
   }
 }
 
+// Styling for the 'Fork me on GitHub' ribbon
+.github-fork-ribbon {
+  transition: visibility 0s linear 0s, opacity 0.15s ease-in;
+
+  &::before {
+    background-color: #333;
+  }
+
+  &::after {
+    font-family: inherit;
+    font-weight: 600;
+  }
+}
+
+// Hide the 'Fork me on GitHub' ribbon on small screens
+@media (max-width: 899px) {
+  .github-fork-ribbon {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0.15s, opacity 0.15s ease-out;
+  }
+}
+
 h1 {
   font-weight: 300;
   margin: 0 $base-spacing $base-spacing*2 $base-spacing;

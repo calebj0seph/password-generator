@@ -1,10 +1,10 @@
 /* Breakpoints */
 @mixin breakpoint($point) {
   @if $point == desktop {
-    @media (min-width: 1024px) { @content; }
+    @media (min-width: 800px) { @content; }
   }
   @else if $point == tablet {
-    @media (min-width: 510px) and (max-width: 1023px) { @content; }
+    @media (min-width: 510px) and (max-width: 799px) { @content; }
   }
   @else if $point == tabletMax {
     @media (min-width: 510px) { @content; }
@@ -16,7 +16,7 @@
 
 /* Spacing */
 $base-spacing: 8px;
-$content-max-width: $base-spacing * 128;
+$content-max-width: $base-spacing * 100;
 $padding-desktop-x: $base-spacing * 4;
 $padding-desktop-y: $base-spacing * 4;
 $padding-tablet-x: $base-spacing * 2;
