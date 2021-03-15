@@ -108,8 +108,8 @@ class Options extends Component {
           max={64}
           step={1}
           value={options.passwordLength}
-          onChange={value => this.onPasswordLengthChange(value)}
-          valueFormatter={value => `${value}`}
+          onChange={(value) => this.onPasswordLengthChange(value)}
+          valueFormatter={(value) => `${value}`}
           label="Password length"
           title="The length of the password in characters"
         />
@@ -119,8 +119,8 @@ class Options extends Component {
           step={1}
           enabled={options.useDigits}
           value={Math.round(options.minDigitProportion * 100)}
-          onChange={value => this.onMinDigitProportionChange(value)}
-          valueFormatter={value => `${value}%`}
+          onChange={(value) => this.onMinDigitProportionChange(value)}
+          valueFormatter={(value) => `${value}%`}
           label="Min. amount of digits"
           title="The minimum percentage of characters that must be digits"
         />
@@ -130,8 +130,8 @@ class Options extends Component {
           step={1}
           enabled={options.useSymbols && options.symbols.length > 0}
           value={Math.round(options.minSymbolProportion * 100)}
-          onChange={value => this.onMinSymbolProportionChange(value)}
-          valueFormatter={value => `${value}%`}
+          onChange={(value) => this.onMinSymbolProportionChange(value)}
+          valueFormatter={(value) => `${value}%`}
           label="Min. amount of symbols"
           title="The minimum percentage of characters that must be symbols"
         />
@@ -141,32 +141,32 @@ class Options extends Component {
           step={1}
           enabled={options.useLowercase && options.useUppercase}
           value={Math.round(options.maxCaseVariance * 100)}
-          onChange={value => this.onMaxCaseVarianceChange(value)}
-          valueFormatter={value => `${value}%`}
+          onChange={(value) => this.onMaxCaseVarianceChange(value)}
+          valueFormatter={(value) => `${value}%`}
           label="Max. case variance"
           title="A lower value means there has to be a more equal number of uppercase and lowercase
                  letters"
         />
         <SwitchOption
           value={options.useUppercase}
-          onChange={value => this.onUseUppercaseChange(value)}
+          onChange={(value) => this.onUseUppercaseChange(value)}
           label="Use uppercase letters"
         />
         <SwitchOption
           value={options.useLowercase}
-          onChange={value => this.onUseLowercaseChange(value)}
+          onChange={(value) => this.onUseLowercaseChange(value)}
           label="Use lowercase letters"
         />
         <SwitchOption
           value={options.useDigits}
-          onChange={value => this.onUseDigitsChange(value)}
+          onChange={(value) => this.onUseDigitsChange(value)}
           label="Use digits"
         />
         <SwitchTextOption
           value={options.useSymbols}
-          onChange={value => this.onUseSymbolsChange(value)}
+          onChange={(value) => this.onUseSymbolsChange(value)}
           textValue={options.symbols}
-          onTextChange={value => this.onSymbolsChange(value)}
+          onTextChange={(value) => this.onSymbolsChange(value)}
           label="Use symbols"
           textPlaceholder="!%@#"
           textHelperText="Enter symbols to use"

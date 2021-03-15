@@ -5,11 +5,11 @@
 
   > * {
     margin-bottom: $base-spacing;
+    padding: 0 $base-spacing;
 
     .option-label {
       box-sizing: border-box;
       display: flex;
-      padding: 0 $base-spacing;
 
       .option-name {
         flex-grow: 1;

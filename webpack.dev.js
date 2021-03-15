@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -7,6 +7,8 @@ module.exports = merge(common, {
   devtool: 'cheap-source-map',
   devServer: {
     compress: true,
+    open: true,
+    overlay: true,
     contentBase: path.join(__dirname, 'dist'),
   },
   module: {

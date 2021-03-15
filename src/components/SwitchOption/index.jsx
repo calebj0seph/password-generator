@@ -14,9 +14,10 @@ const SwitchOption = ({ value, onChange, label }) => (
       </div>
       <div className="option-value">
         <Switch
+          edge="end"
           color="primary"
           checked={value}
-          onChange={event => onChange(event.target.checked)}
+          onChange={(event) => onChange(event.target.checked)}
         />
       </div>
     </div>

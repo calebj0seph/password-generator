@@ -20,9 +20,10 @@ const SwitchTextOption = ({
       </div>
       <div className="option-value">
         <Switch
+          edge="end"
           color="primary"
           checked={value}
-          onChange={event => onChange(event.target.checked)}
+          onChange={(event) => onChange(event.target.checked)}
         />
       </div>
     </div>
@@ -35,7 +36,7 @@ const SwitchTextOption = ({
         classes={{ input: 'text-input', root: 'text-field' }}
         value={textValue}
         placeholder={textPlaceholder}
-        onChange={event => onTextChange(event.target.value)}
+        onChange={(event) => onTextChange(event.target.value)}
       />
       <FormHelperText className="text-field">
         {textHelperText}

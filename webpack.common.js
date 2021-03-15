@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const browserList = require('./browserlist');
 
 const REPO_URL = 'https://github.com/calebj0seph/password-generator';
 const BASE_URL = 'https://calebj0seph.github.io/password-generator';
@@ -27,18 +26,16 @@ module.exports = {
         test: /\.worker\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: [
-          'worker-loader',
+          {
+            loader: 'worker-loader',
+            options: {
+              filename: '[contenthash].worker.js',
+            },
+          },
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                ['@babel/env', {
-                  targets: {
-                    browsers: browserList,
-                  },
-                }],
-                '@babel/react',
-              ],
+              presets: ['@babel/env', '@babel/react'],
             },
           },
         ],
@@ -49,14 +46,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['@babel/env', {
-                targets: {
-                  browsers: browserList,
-                },
-              }],
-              '@babel/react',
-            ],
+            presets: ['@babel/env', '@babel/react'],
           },
         },
       },
@@ -82,8 +72,10 @@ module.exports = {
         collapseWhitespace: true,
       },
     }),
-    new CopyWebpackPlugin([
-      { from: 'static/*.jpg', to: './' },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'static/*.jpg', to: './' },
+      ],
+    }),
   ],
 };

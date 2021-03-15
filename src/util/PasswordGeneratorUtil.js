@@ -58,7 +58,7 @@ export default class PasswordGeneratorUtil {
     this.workers = [];
     for (let i = 0; i < (navigator.hardwareConcurrency || 2); i += 1) {
       const worker = new GeneratePasswordWorker();
-      worker.addEventListener('message', event => this._handleWorkerMessage(i, event));
+      worker.addEventListener('message', (event) => this._handleWorkerMessage(i, event));
       this.workers.push(worker);
       this.resolvePassword.push(null);
       this.rejectPassword.push(null);
