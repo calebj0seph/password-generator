@@ -1,5 +1,5 @@
 import './App.scss';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import React, { Component } from 'react';
 import classifyCharacter from 'util/classifyCharacter';
 import Options from 'components/Options';
@@ -9,7 +9,7 @@ import removeDuplicateCharacters from 'util/removeDuplicateCharacters';
 /**
  * Our custom theme override for Material-UI.
  */
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#20BF55',
@@ -36,7 +36,7 @@ export default class App extends Component {
         useUppercase: true,
         useDigits: true,
         useSymbols: true,
-        symbols: '!%@#',
+        symbols: '!@#$%&*_?',
       },
     };
   }
@@ -79,21 +79,23 @@ export default class App extends Component {
   render() {
     const { options } = this.state;
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className="app-container">
-          <h1>
-            Password Generator
-          </h1>
-          <PasswordGenerator options={options} />
-          <h2>
-            Options
-          </h2>
-          <Options
-            options={options}
-            onOptionsChange={newOptions => this.onOptionsChange(newOptions)}
-          />
-        </div>
-      </MuiThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <div className="app-container">
+            <h1>
+              Password Generator
+            </h1>
+            <PasswordGenerator options={options} />
+            <h2>
+              Options
+            </h2>
+            <Options
+              options={options}
+              onOptionsChange={(newOptions) => this.onOptionsChange(newOptions)}
+            />
+          </div>
+        </ThemeProvider>
+      </StyledEngineProvider>
     );
   }
 }

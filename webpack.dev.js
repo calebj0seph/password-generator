@@ -1,6 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
+const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -8,8 +8,12 @@ module.exports = merge(common, {
   devServer: {
     compress: true,
     open: true,
-    overlay: true,
-    contentBase: path.join(__dirname, 'dist'),
+    client: {
+      overlay: true,
+    },
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
   },
   module: {
     rules: [

@@ -1,13 +1,13 @@
 import './SliderOption.scss';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Slider from '@material-ui/core/Slider';
-import Tooltip from '@material-ui/core/Tooltip';
+import Slider from '@mui/material/Slider';
+import Tooltip from '@mui/material/Tooltip';
 
 /**
  * Displays a numerical option controlled via a slider.
  */
-const SliderOption = ({
+function SliderOption({
   min,
   max,
   step,
@@ -17,29 +17,32 @@ const SliderOption = ({
   valueFormatter,
   label,
   title,
-}) => (
-  <div className="slider-option">
-    <div className="option-label">
-      <div className="option-name">
-        {label}
+}) {
+  return (
+    <div className="slider-option">
+      <div className="option-label">
+        <div className="option-name">
+          {label}
+        </div>
+        <div className="option-value">
+          {valueFormatter !== null && valueFormatter(value)}
+        </div>
       </div>
-      <div className="option-value">
-        {valueFormatter !== null && valueFormatter(value)}
-      </div>
+      <Tooltip title={title} arrow>
+        <Slider
+          className="slider"
+          min={min}
+          max={max}
+          step={step}
+          value={value}
+          disabled={!enabled}
+          size="small"
+          onChange={(event, newValue) => onChange(newValue)}
+        />
+      </Tooltip>
     </div>
-    <Tooltip title={title} arrow>
-      <Slider
-        className="slider"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        disabled={!enabled}
-        onChange={(event, newValue) => onChange(newValue)}
-      />
-    </Tooltip>
-  </div>
-);
+  );
+}
 
 SliderOption.defaultProps = {
   step: null,

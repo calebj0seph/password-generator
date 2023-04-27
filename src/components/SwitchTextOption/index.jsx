@@ -1,50 +1,53 @@
 import './SwitchTextOption.scss';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Input from '@material-ui/core/Input';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import Input from '@mui/material/Input';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Switch from '@material-ui/core/Switch';
+import Switch from '@mui/material/Switch';
 
 /**
  * Displays a boolean option controlled via a switch, along with a string option only editable when
  * the boolean option is true.
  */
-const SwitchTextOption = ({
+function SwitchTextOption({
   value, onChange, textValue, onTextChange, label, textPlaceholder, textHelperText,
-}) => (
-  <div className="switch-text-option">
-    <div className="option-label">
-      <div className="option-name">
-        {label}
+}) {
+  return (
+    <div className="switch-text-option">
+      <div className="option-label">
+        <div className="option-name">
+          {label}
+        </div>
+        <div className="option-value">
+          <Switch
+            edge="end"
+            color="primary"
+            checked={value}
+            onChange={(event) => onChange(event.target.checked)}
+          />
+        </div>
       </div>
-      <div className="option-value">
-        <Switch
-          edge="end"
-          color="primary"
-          checked={value}
-          onChange={(event) => onChange(event.target.checked)}
+      <FormControl
+        disabled={!value}
+        variant="standard"
+        margin="dense"
+        fullWidth
+      >
+        <Input
+          classes={{ input: 'text-input', root: 'text-field' }}
+          value={textValue}
+          placeholder={textPlaceholder}
+          onChange={(event) => onTextChange(event.target.value)}
         />
-      </div>
-    </div>
-    <FormControl
-      disabled={!value}
-      margin="dense"
-      fullWidth
-    >
-      <Input
-        classes={{ input: 'text-input', root: 'text-field' }}
-        value={textValue}
-        placeholder={textPlaceholder}
-        onChange={(event) => onTextChange(event.target.value)}
-      />
-      <FormHelperText className="text-field">
-        {textHelperText}
-      </FormHelperText>
-    </FormControl>
+        <FormHelperText className="text-field">
+          {textHelperText}
+        </FormHelperText>
+      </FormControl>
 
-  </div>
-);
+    </div>
+  );
+}
 
 SwitchTextOption.defaultProps = {
   textPlaceholder: null,

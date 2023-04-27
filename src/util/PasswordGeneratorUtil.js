@@ -1,6 +1,5 @@
 /* eslint no-await-in-loop: 0 */
 /* eslint no-empty: 0 */
-import GeneratePasswordWorker from 'util/generate-password.worker';
 
 /**
  * An object describing the options to use when generating a password.
@@ -57,7 +56,9 @@ export default class PasswordGeneratorUtil {
     // Create a worker for every CPU to generate passwords on
     this.workers = [];
     for (let i = 0; i < (navigator.hardwareConcurrency || 2); i += 1) {
-      const worker = new GeneratePasswordWorker();
+      const worker = new Worker(
+        /* webpackChunkName: "generate-password-worker" */ new URL('./generate-password.worker.js', import.meta.url),
+      );
       worker.addEventListener('message', (event) => this._handleWorkerMessage(i, event));
       this.workers.push(worker);
       this.resolvePassword.push(null);

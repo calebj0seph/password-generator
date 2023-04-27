@@ -3,7 +3,6 @@
 // eslint-disable-next-line spaced-comment
 /// <reference path="PasswordGeneratorUtil.js" />
 
-import '@babel/polyfill';
 import classifyCharacter from 'util/classifyCharacter';
 
 /**

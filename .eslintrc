@@ -3,6 +3,7 @@
   "env": {
     "browser": true
   },
+  "parserOptions": { "ecmaVersion": 11 },
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
@@ -20,12 +21,7 @@
       {
         "ignoreCase": true,
         "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": [
-          "none",
-          "all",
-          "multiple",
-          "single"
-        ]
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
     ]
   },
