@@ -21,9 +21,7 @@ function SliderOption({
   return (
     <div className="slider-option">
       <div className="option-label">
-        <div className="option-name">
-          {label}
-        </div>
+        <div className="option-name">{label}</div>
         <div className="option-value">
           {valueFormatter !== null && valueFormatter(value)}
         </div>

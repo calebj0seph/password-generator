@@ -7,18 +7,22 @@ import React from 'react';
 import Switch from '@mui/material/Switch';
 
 /**
- * Displays a boolean option controlled via a switch, along with a string option only editable when
- * the boolean option is true.
+ * Displays a boolean option controlled via a switch, along with a string option only
+ * editable when the boolean option is true.
  */
 function SwitchTextOption({
-  value, onChange, textValue, onTextChange, label, textPlaceholder, textHelperText,
+  value,
+  onChange,
+  textValue,
+  onTextChange,
+  label,
+  textPlaceholder,
+  textHelperText,
 }) {
   return (
     <div className="switch-text-option">
       <div className="option-label">
-        <div className="option-name">
-          {label}
-        </div>
+        <div className="option-name">{label}</div>
         <div className="option-value">
           <Switch
             edge="end"
@@ -40,11 +44,8 @@ function SwitchTextOption({
           placeholder={textPlaceholder}
           onChange={(event) => onTextChange(event.target.value)}
         />
-        <FormHelperText className="text-field">
-          {textHelperText}
-        </FormHelperText>
+        <FormHelperText className="text-field">{textHelperText}</FormHelperText>
       </FormControl>
-
     </div>
   );
 }

@@ -10,9 +10,7 @@ function SwitchOption({ value, onChange, label }) {
   return (
     <div className="switch-option">
       <div className="option-label">
-        <div className="option-name">
-          {label}
-        </div>
+        <div className="option-name">{label}</div>
         <div className="option-value">
           <Switch
             edge="end"

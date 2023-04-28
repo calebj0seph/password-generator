@@ -18,8 +18,8 @@ import PropTypes from 'prop-types';
 const PASSWORD_GENERATION_TIMEOUT = 5;
 
 /**
- * A component that generates passwords and displays them, with buttons to copy the password and
- * generate new passwords.
+ * A component that generates passwords and displays them, with buttons to copy the
+ * password and generate new passwords.
  */
 class PasswordGenerator extends Component {
   constructor(props) {
@@ -130,7 +130,9 @@ class PasswordGenerator extends Component {
       <div className="password-generator">
         <input
           ref={this.passwordInputRef}
-          className={`password${loading ? ' loading' : ''}${error ? ' error' : ''}`}
+          className={`password${loading ? ' loading' : ''}${
+            error ? ' error' : ''
+          }`}
           type="text"
           readOnly
           value={(() => {
@@ -164,13 +166,9 @@ class PasswordGenerator extends Component {
           onClose={() => this.closeErrorDialog()}
           aria-labelledby="scroll-dialog-title"
         >
-          <DialogTitle id="scroll-dialog-title">
-            Error
-          </DialogTitle>
+          <DialogTitle id="scroll-dialog-title">Error</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              {errorMessage}
-            </DialogContentText>
+            <DialogContentText>{errorMessage}</DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={() => this.closeErrorDialog()} color="primary">

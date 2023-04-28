@@ -1,5 +1,9 @@
 import './App.scss';
-import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
+import {
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material/styles';
 import React, { Component } from 'react';
 import classifyCharacter from 'util/classifyCharacter';
 import Options from 'components/Options';
@@ -42,8 +46,8 @@ export default class App extends Component {
   }
 
   /**
-   * Updates the current set of password generation options. A partial options object can be
-   * provided, which will only update the given options.
+   * Updates the current set of password generation options. A partial options object can
+   * be provided, which will only update the given options.
    */
   onOptionsChange(optionsDelta) {
     this.setState((prevState) => {
@@ -55,17 +59,26 @@ export default class App extends Component {
       };
       // Remove duplicate symbols
       newOptions.symbols = removeDuplicateCharacters(newOptions.symbols);
-      // Don't allow the options to be changed if it would result in less than 2 characters being
-      // used for password generation, if less than 1 symbol is provided, or if invalid symbols are
-      // provided
+      // Don't allow the options to be changed if it would result in less than 2
+      // characters being used for password generation, if less than 1 symbol is
+      // provided, or if invalid symbols are provided
       let hasValidSymbols = true;
-      for (let i = 0; hasValidSymbols && i < newOptions.symbols.length; i += 1) {
+      for (
+        let i = 0;
+        hasValidSymbols && i < newOptions.symbols.length;
+        i += 1
+      ) {
         hasValidSymbols = hasValidSymbols
-                          && classifyCharacter(newOptions.symbols.charCodeAt(i)) === 'symbol';
+          && classifyCharacter(newOptions.symbols.charCodeAt(i)) === 'symbol';
       }
-      if ((newOptions.useUppercase || newOptions.useLowercase || newOptions.useDigits
-          || (newOptions.useSymbols && newOptions.symbols.length > 1)) && hasValidSymbols
-          && newOptions.symbols.length > 0) {
+      if (
+        (newOptions.useUppercase
+          || newOptions.useLowercase
+          || newOptions.useDigits
+          || (newOptions.useSymbols && newOptions.symbols.length > 1))
+        && hasValidSymbols
+        && newOptions.symbols.length > 0
+      ) {
         return {
           options: newOptions,
         };
@@ -82,13 +95,9 @@ export default class App extends Component {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <div className="app-container">
-            <h1>
-              Password Generator
-            </h1>
+            <h1>Password Generator</h1>
             <PasswordGenerator options={options} />
-            <h2>
-              Options
-            </h2>
+            <h2>Options</h2>
             <Options
               options={options}
               onOptionsChange={(newOptions) => this.onOptionsChange(newOptions)}

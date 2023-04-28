@@ -6,7 +6,9 @@
   "repository": "github:calebj0seph/password-generator",
   "scripts": {
     "build": "rimraf dist && webpack --mode=production --progress --config webpack.prod.js",
-    "start": "webpack serve --color --progress --config webpack.dev.js"
+    "start": "webpack serve --color --progress --config webpack.dev.js",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx} && eslint src/**/*.{js,jsx} --fix"
   },
   "author": "Caleb Joseph",
   "license": "MIT",
@@ -43,6 +45,7 @@
     "mini-css-extract-plugin": "^2.7.5",
     "node-sass": "^8.0.0",
     "postcss-loader": "^7.2.4",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
