@@ -13,7 +13,6 @@
   "author": "Caleb Joseph",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "7.21.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.2",

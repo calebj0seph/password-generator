@@ -130,7 +130,7 @@ function generateRandomString(length, characters) {
  */
 function generatePassword(options, timeout) {
   // Measure the starting time
-  const startTime = Date.now();
+  const startTime = self.performance.now();
 
   // Determine what characters to use
   let passwordChars = '';
@@ -153,7 +153,7 @@ function generatePassword(options, timeout) {
     password = generateRandomString(options.passwordLength, passwordChars);
 
     // Check if we've been running for too long
-    if (Date.now() - startTime >= timeout * 1000) {
+    if (self.performance.now() - startTime >= timeout * 1000) {
       return null;
     }
   } while (!passwordIsValid(password, options));

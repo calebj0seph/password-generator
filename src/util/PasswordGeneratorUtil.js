@@ -157,10 +157,10 @@ export default class PasswordGeneratorUtil {
    * @private
    */
   async #generatePasswordOnWorker(worker, options, timeout, requestId) {
-    const startTime = Date.now();
+    const startTime = performance.now();
 
     // Keep generating passwords until a valid one is found, or the timeout is reached
-    while (Date.now() - startTime <= timeout * 1000) {
+    while (performance.now() - startTime <= timeout * 1000) {
       // If the current request ID has changed, throw a CancelError
       if (requestId !== this.#currentRequestId) {
         throw PasswordGeneratorUtil.#createCancelError();

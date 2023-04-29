@@ -23,18 +23,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.worker\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/env', '@babel/react'],
-            },
-          },
-        ],
-      },
-      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
